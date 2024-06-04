@@ -1,0 +1,38 @@
+.overlay-container {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+  }
+  
+  .background-image {
+    display: block;
+    max-width: 100%; /* Adjust maximum width as needed */
+    height: auto;
+    margin: 0 auto; /* Center the image horizontally */
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Text color */
+  }
+  
+  .text-overlay h1, .text-overlay p {
+    margin: 0;
+  }
+  
+  .space {
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
+  
+  @media screen {
+    .text-overlay {
+      width: 80%; /* Adjust the width for smaller screens */
+      left: 50%;
+      top: 40%;
+      transform: translateX(-50%);
+    }
+  }
+  

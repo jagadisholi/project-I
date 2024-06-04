@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* background-image: url('../assets/img/5.jpg'); /* Replace 'background.jpg' with your image file */
+    /* background-size: cover;
+    background-position: center; */ 
+    /* height: 75vh; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .overlay {
+    /* background-color: rgba(0, 0, 0, 0.5); Adjust opacity as needed */
+    color: powderblue;
+    padding: 0px;
+    /* border-radius: 10px; */
+    max-width: 80%; /* Limit maximum width of the overlay */
+    /* text-align: left; */
+    margin-bottom: 180px;
+    /* margin-top: 110px; */
+  }
+  
+  .overlay h1, .overlay p,img{
+    margin: 0; /* Remove default margins */
+    display: flex;
+
+  }
+  
+  @media screen and (min-width: 768px) {
+    body {
+      flex-direction: row; /* Align items horizontally */
+      justify-content: flex-start; /* Align items to the left */
+    }
+  
+    .overlay {
+      max-width: 50%; /* Adjust the width of the overlay on larger screens */
+      margin-right: auto; /* Automatically adjust margin for spacing */
+      margin-left: 30px; /* Add space between the text and the image */
+    }
+  }
+  .space{
+    padding: 32px;
+  }
