@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  @keyframes fireAnimation {
+  @keyframes fireAnimation { /* Bright Future animation css*/
     0% { background-position: 0 0; }
     100% { background-position: 100% 0;
      }
