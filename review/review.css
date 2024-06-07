@@ -1,44 +1,128 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: #f0f1f3; 
+	background: #f0f1f3;
 }
-.carousel{
-    height: 600px; 
-    perspective: 250px;    
-    
+
+.carousel {
+	height: 600px; 
+	perspective: 250px; /* Perspective for 3D effect */
 }
+
 .carousel .carousel-item {
 	width: 450px;
-	background: #1b1a1a; /*box color*/
+	background: #1b1a1a; /* Box color */
 	padding: 50px;
 	height: auto;
 	text-align: center;
-    border-radius: 15px;
+	border-radius: 15px;
+	margin: 20px auto; /* Center items horizontally */
 }
+
 .img-area {
 	width: 100px;
 	height: 100px;
 	margin: 0 auto;
 	overflow: hidden;
 	border-radius: 50%;
-	border: inset 8px deepskyblue; /*circle color*/
+	border: inset 8px deepskyblue; /* Circle color */
 }
-        .img-area img{
-            width: 100%;
-        }
-        .testi p {
-	color: #fff; /*font color */
+
+.img-area img {
+	width: 100%;
+	height: auto; /* Maintain aspect ratio */
+}
+
+.testi p {
+	color: #fff; /* Font color */
 	font-size: 18px;
 	line-height: 1.9;
 }
-        .testi h4 {
+
+.testi h4 {
 	font-size: 20px;
 	margin: 0;
-	color: #25e413; /*h4 color*/
+	color: #25e413; /* h4 color */
 }
-        .testi h5 {
+
+.testi h5 {
 	font-size: 14px;
 	letter-spacing: 5px;
 	margin: 7px 0;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 767.98px) {
+	.carousel {
+		height: auto; /* Adjust height for smaller screens */
+		padding: 20px;
+	}
+	.carousel .carousel-item {
+		width: 90%; /* Reduce width for smaller screens */
+		padding: 20px;
+	}
+	.img-area {
+		width: 80px;
+		height: 80px;
+	}
+	.testi p {
+		font-size: 16px; /* Adjust font size */
+	}
+	.testi h4 {
+		font-size: 18px;
+	}
+	.testi h5 {
+		font-size: 12px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.carousel {
+		height: auto;
+		padding: 30px;
+	}
+	.carousel .carousel-item {
+		width: 80%;
+		padding: 30px;
+	}
+	.img-area {
+		width: 90px;
+		height: 90px;
+	}
+	.testi p {
+		font-size: 17px;
+	}
+	.testi h4 {
+		font-size: 19px;
+	}
+	.testi h5 {
+		font-size: 13px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.carousel {
+		height: 600px;
+	}
+	.carousel .carousel-item {
+		width: 450px;
+		padding: 50px;
+	}
+	.img-area {
+		width: 100px;
+		height: 100px;
+	}
+	.testi p {
+		font-size: 18px;
+	}
+	.testi h4 {
+		font-size: 20px;
+	}
+	.testi h5 {
+		font-size: 14px;
+	}
 }
