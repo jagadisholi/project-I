@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="css/form_css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="form.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2><strong>BRIGHT FUTURE PRABHIDIK SIKSHALAYA
+            <br>Ghorahi-15, Bharatpur, Dang    
+        </strong></h2>
+        <h3>Email:<a href="mailto:bfps.dang@gmail.com">bfps.dang@gmail.com</a>
+        </h3>
+        <h3><a href="tel:+9779810247132">
+            <i class="fas fa-phone"></i> Call us: +977 9810247132
+        </a></h3>
+
+        <div class="form-container">
+            <form action="process_form.php" method="POST">
+                <div class="input-name">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="First name"  class="name" name="first_name" required>
+                    <span>
+                        <input type="text" placeholder="Middle name" class="name" name="middle_name">
+                    </span>
+                    <span>
+                        <input type="text" placeholder="Last name" class="name" name="last_name" required>
+                    </span>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa-solid fa-landmark"></i>
+                    <input type="text" placeholder="Nationality" class="name" name="nationality" required>
+                    <span>
+                        <i class="fas fa-phone"></i>
+                        <input type="number" placeholder="Mobile number" class="name" name="mobile_number" required>
+                    </span>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="date" placeholder="DOB" class="name" name="dob" required>
+                </div>
+
+                <div class="input-name">
+                    <span>*</span>
+                    <i class="fa-solid fa-envelope"></i>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <h2><strong>COURSE/PROGRAM</strong></h2>
+                <h3>Computer Course:</h3>
+                <div class="input-name">
+                    <label for="course">Choose Your Choice:</label>
+
+                    <select name="course" id="course" required>
+                        <option value="">Select an option</option>
+                        <option value="Computer">Computer Course</option>
+                        <option value="Language">Language</option>
+                        <option value="CTEVT">CTEVT</option>
+                        <option value="Enquiry">Enquiry</option>
+                    </select>
+                </div>
+
+                <div class="input-name">
+                    <span>*</span>
+                    <i class="fas fa-user"></i>
+                    <label for="f_name">Father Name:</label>
+                    <input type="text" id="f_name" name="f_name" placeholder="Father Name" required>
+                    <br><span>*</span>
+                    <label for="f_occupation">Occupation:</label>
+                    <input type="text" name="f_occupation" id="f_occupation" placeholder="Occupation" required>
+                    <br><span>*</span>
+                    <i class="fas fa-phone"></i>
+                    <label for="f_mobile_no">Mobile no:</label>
+                    <input type="number" name="f_mobile_no" id="f_mobile_no" placeholder="Mobile no" required>
+                </div>
+
+                <div class="input-name">
+                    <span>*</span>
+                    <i class="fas fa-user"></i>
+                    <label for="m_name">Mother Name:</label>
+                    <input type="text" id="m_name" name="m_name" placeholder="Mother Name" required>
+                    <br><span>*</span>
+                    <label for="m_occupation">Occupation:</label>
+                    <input type="text" name="m_occupation" id="m_occupation" placeholder="Occupation" required>
+                    <br><span>*</span>
+                    <i class="fas fa-phone"></i>
+                    <label for="m_mobile_no">Mobile no:</label>
+                    <input type="number" name="m_mobile_no" id="m_mobile_no" placeholder="Mobile no" required>
+                </div>
+
+                <div class="input-name">
+                    <input type="radio" class="radio-button" name="gender" value="Male" required>
+                    <label>Male</label>
+
+                    <input type="radio" class="radio-button" name="gender" value="Female" required>
+                    <label>Female</label>
+                </div>
+
+                <div class="input-name">
+                    <label for="country">Country:</label>
+                    <select id="country" name="country" required onchange="updateProvinces()">
+                        <option value="" selected>Select Country</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="mb-3" id="province-container" style="display:none;">
+                    <label for="province" class="form-label">Province:</label>
+                    <select class="form-select" id="province" name="province" onchange="updateDistricts()">
+                        <option value="" selected>Select Province</option>
+                        <option value="1">Koshi Province</option>
+                        <option value="2">Madesh Province</option>
+                        <option value="3">Bagmati Province</option>
+                        <option value="4">Gandaki Province</option>
+                        <option value="5">Lumbini Province</option>
+                        <option value="6">Karnali Province</option>
+                        <option value="7">Sudurpashchim Province</option>
+                    </select>
+                </div>
+
+                <div class="mb-3" id="district-container" style="display:none;">
+                    <label for="district" class="form-label">District:</label>
+                    <select class="form-select" id="district" name="district" onchange="showLocalityFields()">
+                        <option value="" selected>Select District</option>
+                    </select>
+                </div>
+
+                <div class="input-name" id="locality-container" style="display:none;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" placeholder="Local Level (Sthaniya Thaha)" class="name" name="locality">
+                </div>
+
+                <div class="input-name" id="village-container" style="display:none;">
+                    <i class="fa-solid fa-location-arrow"></i>
+                    <input type="text" placeholder="Village/Municipality" class="name" name="village">
+                </div>
+
+                <div class="input-name" id="ward-container" style="display:none;">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <input type="number" placeholder="Ward No." class="name" name="ward">
+                </div>
+
+                <div class="add">
+                    <label for="temporaryAddress">Temporary Address:</label>
+                    <input type="text" id="temporaryAddress" name="temporaryAddress">
+                    <br>
+                    <label for="permanentAddressCopy">Permanent Address:</label>
+                    <input type="text" id="permanentAddressCopy" name="permanentAddressCopy" placeholder="Enter your permanent address">
+                    <br>
+                    <button type="button" onclick="copyTemporaryToPermanent()">Same as Temporary Address</button>
+                </div>
+
+                <div>
+                    <p><strong>Note:</strong> Fees to be paid on the given dates as discussed in institute during admission of candidate institute will not be held responsible for this placement of vehicle of any candidate.</p>
+                    <h3>DECLARATION</h3>
+                    <h5>I hereby declare that all the particulars stated in this application are true to the best of my knowledge and belief.</h5>
+                </div>
+
+                <div class="input-name">
+                    <input type="submit" class="check_button" value="Submit">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="form.js"></script>
+</body>
+</html>
