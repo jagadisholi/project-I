@@ -1,34 +1,18 @@
-function copyTemporaryToPermanent() {
-    var temporaryAddress = document.getElementById('temporaryAddress').value;
-    document.getElementById('permanentAddress').value = temporaryAddress;
-}
-function updateProvinces() {
-    const country = document.getElementById('country').value;
-    const provinceContainer = document.getElementById('province-container');
-    if (country === 'Nepal') {
-        provinceContainer.style.display = 'block';
-    } else {
-        provinceContainer.style.display = 'none';
-        resetFields();
-    }
-}
+const districts = {
+    '1': ['Bhojpur', 'Dhankuta', 'Ilam', 'Jhapa', 'Khotang', 'Morang', 'Okhaldhunga', 'Panchthar', 'Sankhuwasabha', 'Solukhumbu', 'Sunsari', 'Taplejung', 'Terhathum', 'Udayapur'],
+    '2': ['Bara', 'Dhanusha', 'Mahottari', 'Parsa', 'Rautahat', 'Saptari', 'Sarlahi', 'Siraha'],
+    '3': ['Bhaktapur', 'Chitwan', 'Dhading', 'Dolakha', 'Kathmandu', 'Kavrepalanchok', 'Lalitpur', 'Makwanpur', 'Nuwakot', 'Ramechhap', 'Rasuwa', 'Sindhuli', 'Sindhupalchok'],
+    '4': ['Baglung', 'Gorkha', 'Kaski', 'Lamjung', 'Manang', 'Mustang', 'Myagdi', 'Nawalpur', 'Parbat', 'Syangja', 'Tanahun'],
+    '5': ['Arghakhanchi', 'Banke', 'Bardiya', 'Dang', 'Gulmi', 'Kapilvastu', 'Parasi', 'Palpa', 'Pyuthan', 'Rolpa', 'Rukum (East)', 'Rupandehi'],
+    '6': ['Dailekh', 'Dolpa', 'Humla', 'Jajarkot', 'Jumla', 'Kalikot', 'Mugu', 'Rukum (West)', 'Salyan', 'Surkhet'],
+    '7': ['Achham', 'Baitadi', 'Bajhang', 'Bajura', 'Dadeldhura', 'Darchula', 'Doti', 'Kailali', 'Kanchanpur']
+};
 
-function updateDistricts() {
-    const province = document.getElementById('province').value;
-    const districtContainer = document.getElementById('district-container');
-    const districtSelect = document.getElementById('district');
+function updateDistricts(addressType) {
+    const province = document.getElementById(`${addressType}-province`).value;
+    const districtContainer = document.getElementById(`${addressType}-district-container`);
+    const districtSelect = document.getElementById(`${addressType}-district`);
     districtSelect.innerHTML = '<option value="" selected>Select District</option>'; // Reset districts
-
-    // Add your districts here based on the province
-    const districts = {
-        '1': ['District 1', 'District 2', 'District 3'],
-        '2': ['District 4', 'District 5', 'District 6'],
-        '3': ['District 7', 'District 8', 'District 9'],
-        '4': ['District 10', 'District 11', 'District 12'],
-        '5': ['District 13', 'District 14', 'District 15'],
-        '6': ['District 16', 'District 17', 'District 18'],
-        '7': ['District 19', 'District 20', 'District 21']
-    };
 
     if (districts[province]) {
         districts[province].forEach(district => {
@@ -40,26 +24,28 @@ function updateDistricts() {
         districtContainer.style.display = 'block';
     } else {
         districtContainer.style.display = 'none';
-        resetFields();
     }
+    resetLocalityFields(addressType);
 }
 
-function showLocalityFields() {
-    document.getElementById('locality-container').style.display = 'block';
-    document.getElementById('village-container').style.display = 'block';
-    document.getElementById('ward-container').style.display = 'block';
+function copyPermanentToTemporary() {
+    document.getElementById('temporary-province').value = document.getElementById('province').value;
+    updateDistricts('temporary');
+    setTimeout(() => {
+        document.getElementById('temporary-district').value = document.getElementById('permanent-district').value;
+        document.getElementById('temporary-localBody').value = document.getElementById('permanent-localBody').value;
+        document.getElementById('temporary-wardNo').value = document.getElementById('permanent-wardNo').value;
+        document.getElementById('temporary-marga').value = document.getElementById('permanent-marga').value;
+        document.getElementById('temporary-tole').value = document.getElementById('permanent-tole').value;
+        document.getElementById('temporary-phoneNo').value = document.getElementById('permanent-phoneNo').value;
+        document.getElementById('temporary-mobileNo').value = document.getElementById('permanent-mobileNo').value;
+        document.getElementById('temporary-email').value = document.getElementById('permanent-email').value;
+    }, 100); // Add delay to ensure districts are populated before setting value
 }
 
-function copyTemporaryToPermanent() {
-    const temporaryAddress = document.getElementById('temporaryAddress').value;
-    document.getElementById('permanentAddressCopy').value = temporaryAddress;
+function resetLocalityFields(addressType) {
+    document.getElementById(`${addressType}-local-body-container`).style.display = 'none';
+    document.getElementById(`${addressType}-ward-container`).style.display = 'none';
+    document.getElementById(`${addressType}-marga-container`).style.display = 'none';
+    document.getElementById(`${addressType}-tole-container`).style.display = 'none';
 }
-
-function resetFields() {
-    document.getElementById('district-container').style.display = 'none';
-    document.getElementById('locality-container').style.display = 'none';
-    document.getElementById('village-container').style.display = 'none';
-    document.getElementById('ward-container').style.display = 'none';
-}
-
-
