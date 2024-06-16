@@ -1,4 +1,4 @@
-<?php
+8<?php
 // This file will handle the form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST['first_name'];
@@ -24,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ward = isset($_POST['ward']) ? $_POST['ward'] : '';
     $temporaryAddress = $_POST['temporaryAddress'];
     $permanentAddressCopy = $_POST['permanentAddressCopy'];
+    $temporaryAddress = $_POST['temporaryAddress'];
+    $
 
     // Add your form processing logic here (e.g., save data to database, send email, etc.)
 
