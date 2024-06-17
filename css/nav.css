@@ -63,8 +63,8 @@ nav .wrapper{
 }
 .nav-links .drop-menu{
   position: absolute;
-  background: #000000;
-  width: 180px;
+  background: #569ba7;
+  width: 35%;
   line-height: 45px;
   top: 85px;
   opacity: 0;
@@ -88,14 +88,14 @@ nav .wrapper{
 .mega-box{
   position: absolute;
   right: 0;
-  width: 70%;
+  width: 65%;
   top: 85px;
   opacity: 0;
   visibility: hidden;
 }
 .mega-box .content{
   background: #569ba7;
-  padding: 15px 33.33px;
+  padding: 5px 33.33px;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -105,13 +105,6 @@ nav .wrapper{
   width: calc(25% - 30px);
   line-height: 27.77px;
 }
-/* .content .row img{
-  width: 80.55%;
-  height: 53.33%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  
-} */
 .content .row header{
   color: #ffff;
   font-size: 17px;
