@@ -42,10 +42,38 @@ function copyPermanentToTemporary() {
         document.getElementById('temporary-email').value = document.getElementById('permanent-email').value;
     }, 100); // Add delay to ensure districts are populated before setting value
 }
-
+// photo section //
 function resetLocalityFields(addressType) {
     document.getElementById(`${addressType}-local-body-container`).style.display = 'none';
     document.getElementById(`${addressType}-ward-container`).style.display = 'none';
     document.getElementById(`${addressType}-marga-container`).style.display = 'none';
     document.getElementById(`${addressType}-tole-container`).style.display = 'none';
+}
+function copyTemporaryToPermanent() {
+    var temporaryAddress = document.getElementById('temporaryAddress').value;
+    document.getElementById('permanentAddress').value = temporaryAddress;
+    // Get the input element
+const imageUpload = document.getElementById('imageUpload');
+
+// Add an event listener to detect file upload
+imageUpload.addEventListener('change', function() {
+  // Get the selected file
+   const file = imageUpload.files[0];
+
+  // Create a FileReader object
+  const reader = new FileReader();
+
+  // Set up the reader's onload event handler
+  reader.onload = function(e) {
+    // Get the image data URL
+    const imageDataUrl = e.target.result;
+
+    // Display the uploaded image
+    const imagePreview = document.getElementById('imagePreview');
+    imagePreview.src = imageDataUrl;
+  };
+
+  // Read the selected file as Data URL
+  reader.readAsDataURL(file);
+});
 }
