@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $temporaryAddress = $_POST['temporaryAddress'];
     $permanentAddressCopy = $_POST['permanentAddressCopy'];
     $temporaryAddress = $_POST['temporaryAddress'];
-    $
+    $class
 
     // Add your form processing logic here (e.g., save data to database, send email, etc.)
 
