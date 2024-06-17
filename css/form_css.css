@@ -30,3 +30,18 @@
     border: 1px solid #ccc;
     margin-top: 10px;
   }
+
+  /* image css made by jagadish */
+  /* Container styling */
+.container_photo {
+    margin: 50px;
+}
+
+/* Styling for the image preview section */
+.image-preview {
+    width: 150px;
+    height: 150px;
+    display: none; /* Hidden by default */
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}

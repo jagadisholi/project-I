@@ -49,6 +49,52 @@ function resetLocalityFields(addressType) {
     document.getElementById(`${addressType}-marga-container`).style.display = 'none';
     document.getElementById(`${addressType}-tole-container`).style.display = 'none';
 }
+
+// photo section made by jagadish 
+// Event listener for form submission
+document.getElementById('photoForm').addEventListener('submit', function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+    
+    // Get the file input element and the selected file
+    const fileInput = document.getElementById('photoInput');
+    const file = fileInput.files[0];
+    
+    // Check if a file is selected
+    if (!file) {
+        alert('Please upload a photo.');
+        return;
+    }
+
+    // Allowed file extensions
+    const validExtensions = ['image/jpeg', 'image/jpg'];
+    
+    // Check if the selected file is a JPEG or JPG
+    if (!validExtensions.includes(file.type)) {
+        alert('Only JPG and JPEG files are allowed.');
+        fileInput.value = ''; // Reset the file input
+        return;
+    }
+
+    // Create a FileReader to read the file
+    const reader = new FileReader();
+    
+    // Event listener for file reading
+    reader.onload = function(e) {
+        // Get the image element for preview
+        const previewImg = document.getElementById('previewImg');
+        
+        // Set the src of the image element to the file's data URL
+        previewImg.src = e.target.result;
+        
+        // Display the image preview
+        document.getElementById('imagePreview').style.display = 'block';
+    };
+    
+    // Read the file as a data URL
+    reader.readAsDataURL(file);
+});
+
 function copyTemporaryToPermanent() {
     var temporaryAddress = document.getElementById('temporaryAddress').value;
     document.getElementById('permanentAddress').value = temporaryAddress;
