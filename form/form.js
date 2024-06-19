@@ -43,56 +43,23 @@ function copyPermanentToTemporary() {
     }, 100); // Add delay to ensure districts are populated before setting value
 }
 // photo section //
-function resetLocalityFields(addressType) {
-    document.getElementById(`${addressType}-local-body-container`).style.display = 'none';
-    document.getElementById(`${addressType}-ward-container`).style.display = 'none';
-    document.getElementById(`${addressType}-marga-container`).style.display = 'none';
-    document.getElementById(`${addressType}-tole-container`).style.display = 'none';
-}
-
-// photo section made by jagadish 
-// Event listener for form submission
-document.getElementById('photoForm').addEventListener('submit', function(event) {
-    // Prevent default form submission
-    event.preventDefault();
-    
-    // Get the file input element and the selected file
-    const fileInput = document.getElementById('photoInput');
-    const file = fileInput.files[0];
-    
-    // Check if a file is selected
-    if (!file) {
-        alert('Please upload a photo.');
-        return;
-    }
-
-    // Allowed file extensions
-    const validExtensions = ['image/jpeg', 'image/jpg'];
-    
-    // Check if the selected file is a JPEG or JPG
-    if (!validExtensions.includes(file.type)) {
-        alert('Only JPG and JPEG files are allowed.');
-        fileInput.value = ''; // Reset the file input
-        return;
-    }
-
-    // Create a FileReader to read the file
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+    const preview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const file = event.target.files[0];
     const reader = new FileReader();
     
-    // Event listener for file reading
-    reader.onload = function(e) {
-        // Get the image element for preview
-        const previewImg = document.getElementById('previewImg');
-        
-        // Set the src of the image element to the file's data URL
-        previewImg.src = e.target.result;
-        
-        // Display the image preview
-        document.getElementById('imagePreview').style.display = 'block';
+    reader.onloadend = function() {
+        previewImg.src = reader.result;
+        preview.style.display = 'block'; // Show the preview field
     };
     
-    // Read the file as a data URL
-    reader.readAsDataURL(file);
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        previewImg.src = '';
+        preview.style.display = 'none'; // Hide the preview field if no file is chosen
+    }
 });
 
 function copyTemporaryToPermanent() {
